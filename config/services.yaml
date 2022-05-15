@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    provider1_base_uri: '%env(PROVIDER1_BASE_URI)%'
+    provider2_base_uri: '%env(PROVIDER2_BASE_URI)%'
 
 services:
     # default configuration for services in *this* file

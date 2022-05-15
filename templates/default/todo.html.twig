@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+    <div class="container-fluid bg-light">
+        <div class="row">
+            {% for developer in developers %}
+            <a class="navbar-toggler" href="{{ path('default.developer.todo', {developer:developer.id}) }}">{{ developer.name }} </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        {% for key,  plan in developer.plans   %}
+        <div class="row">
+            <h3>{{ key }}. Hafta</h3>
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th scope="col">#</th>
+                    <th scope="col">provider</th>
+                    <th scope="col">level</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for todo in plan %}
+                <tr>
+                    <th>{{ todo.todo.id }}</th>
+                    <td scope="row">{{ todo.todo.provider }}</td>
+                    <td>{{ todo.todo.level }}</td>
+                    <td>{{ todo.todo.time }}</td>
+                    <td>{{ todo.todo.providerReferenceId }}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
